@@ -47,7 +47,7 @@ export const GroupDropDown = ({ groups, members }: GroupDropDownProps) => {
           variant="ghost"
           className="rounded-2xl hover:bg-themeGray font-medium flex gap-2"
         >
-          Grouple.
+          Jhiadle.
           <CarotSort />
         </Button>
       }

@@ -1,13 +1,11 @@
 import BackdropGradient from "@/components/global/backdrop-gradient"
 import GradientText from "@/components/global/gradient-text"
-import { Button } from "@/components/ui/button"
 import { Card, CardDescription, CardTitle } from "@/components/ui/card"
 import { Check } from "@/icons"
-import Link from "next/link"
+import { CheckoutButton } from "@/app/pricing/_components/checkout-button"
+import { StripeElements } from "@/components/global/stripe/elements"
 
-type Props = {}
-
-export const PricingSection = (props: Props) => {
+export const PricingSection = () => {
   return (
     <div className="w-full pt-20 flex flex-col items-center gap-3" id="pricing">
       <BackdropGradient className="w-8/12 h-full opacity-40 flex flex-col items-center">
@@ -18,50 +16,94 @@ export const PricingSection = (props: Props) => {
           Pricing Plans That Fit Your Right
         </GradientText>
         <p className="text-sm md:text-center text-left text-muted-foreground">
-          Grouple is a vibrant online community platform that empowers people to
-          connect, <br className="hidden md:block" />
-          collaborate, and cultivate meaningful relationships
+          Jhiadle is a dynamic online community platform that empowers
+          individuals to connect, <br className="hidden md:block" />
+          collaborate, and foster meaningful relationships.
         </p>
       </BackdropGradient>
-      <Card className="p-7 mt-10 md:w-auto w-full bg-themeBlack border-themeGray">
-        <div className="flex flex-col gap-2">
-          <CardTitle>99/m</CardTitle>
-          <CardDescription className="text-[#B4B0AE]">
-            Great if you’re just getting started
-          </CardDescription>
-          <Link href="#" className="w-full mt-3">
-            <Button
-              variant="default"
-              className="bg-[#333337] w-full rounded-2xl text-white hover:text-[#333337]"
-            >
-              Start for free
-            </Button>
-          </Link>
-        </div>
-        <div className="flex flex-col gap-2 text-[#B4B0AE] mt-5">
-          <p>Features</p>
-          <span className="flex gap-2 mt-3 items-center">
-            <Check />
-            Feature number 1
-          </span>
-          <span className="flex gap-2 items-center">
-            <Check />
-            Feature number 1
-          </span>
-          <span className="flex gap-2 items-center">
-            <Check />
-            Feature number 1
-          </span>
-          <span className="flex gap-2 items-center">
-            <Check />
-            Feature number 1
-          </span>
-          <span className="flex gap-2 items-center">
-            <Check />
-            Feature number 1
-          </span>
-        </div>
-      </Card>
+
+      <div className="flex flex-col md:flex-row gap-6 mt-10">
+        {/* Free Tier */}
+        <Card className="p-7 md:w-[300px] w-full bg-themeBlack border-themeGray">
+          <div className="flex flex-col gap-2">
+            <CardTitle>Free</CardTitle>
+            <CardDescription className="text-[#B4B0AE]">
+              Perfect for getting started
+            </CardDescription>
+            <div className="w-full mt-3">
+              <CheckoutButton
+                price="0"
+                planType="free"
+                onClick={() => {
+                  window.location.href = "/signup"
+                }}
+              />
+            </div>
+          </div>
+          <div className="flex flex-col gap-2 text-[#B4B0AE] mt-5">
+            <p>Features</p>
+            <span className="flex gap-2 mt-3 items-center">
+              <Check />
+              Basic group management
+            </span>
+            <span className="flex gap-2 items-center">
+              <Check />
+              Real-time messaging
+            </span>
+            <span className="flex gap-2 items-center">
+              <Check />
+              Content creating
+            </span>
+          </div>
+        </Card>
+
+        {/* Pro Tier */}
+        <Card className="p-7 md:w-[300px] w-full bg-themeBlack border-themeGray relative">
+          <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-purple-600 to-blue-600 px-4 py-1 rounded-full text-sm">
+            Popular
+          </div>
+          <div className="flex flex-col gap-2">
+            <CardTitle>$99/m</CardTitle>
+            <CardDescription className="text-[#B4B0AE]">
+              For growing communities
+            </CardDescription>
+            <div className="w-full mt-3">
+              <StripeElements>
+                <CheckoutButton
+                  price="99"
+                  planType="pro"
+                  onClick={() => {
+                    window.location.href = "/signup"
+                  }}
+                />
+              </StripeElements>
+            </div>
+          </div>
+          <div className="flex flex-col gap-2 text-[#B4B0AE] mt-5">
+            <p>Everything in Free, plus:</p>
+            <span className="flex gap-2 mt-3 items-center">
+              <Check />
+              Advanced group management
+            </span>
+            <span className="flex gap-2 items-center">
+              <Check />
+              Custom domain
+            </span>
+            <span className="flex gap-2 items-center">
+              <Check />
+              Real-time messaging
+            </span>
+            <span className="flex gap-2 items-center">
+              <Check />
+              Content creating
+            </span>
+            <span className="flex gap-2 items-center">
+              <Check />
+              Explore features
+            </span>
+          </div>
+        </Card>
+      </div>
     </div>
   )
 }

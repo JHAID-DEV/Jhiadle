@@ -1,6 +1,7 @@
 import dynamic from "next/dynamic"
 import CallToAction from "./_components/call-to-action"
 import DashboardSnippet from "./_components/dashboard-snippet"
+import { StripeElements } from "@/components/global/stripe/elements"
 
 const PricingSection = dynamic(
   () =>
@@ -17,7 +18,9 @@ export default function Home() {
         <CallToAction />
         <DashboardSnippet />
       </div>
-      <PricingSection />
+      <StripeElements>
+        <PricingSection />
+      </StripeElements>
     </main>
   )
 }

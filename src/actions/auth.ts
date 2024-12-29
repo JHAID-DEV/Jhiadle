@@ -16,22 +16,23 @@ export const onAuthenticatedUser = async () => {
         id: true,
         firstname: true,
         lastname: true,
+        email: true,
+        image: true,
       },
     })
-    if (user)
+
+    if (user) {
       return {
         status: 200,
         id: user.id,
         image: clerk.imageUrl,
         username: `${user.firstname} ${user.lastname}`,
+        email: clerk.emailAddresses[0].emailAddress,
       }
-    return {
-      status: 404,
     }
+    return { status: 404 }
   } catch (error) {
-    return {
-      status: 400,
-    }
+    return { status: 400 }
   }
 }
 
@@ -42,9 +43,13 @@ export const onSignUpUser = async (data: {
   clerkId: string
 }) => {
   try {
+    const clerk = await currentUser()
+    if (!clerk) return { status: 404 }
+
     const createdUser = await client.user.create({
       data: {
         ...data,
+        email: clerk.emailAddresses[0].emailAddress,
       },
     })
 

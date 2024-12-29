@@ -20,8 +20,13 @@ model User {
   createdAt DateTime @default(now())
   clerkId   String   @unique
   image     String?
+  email     String   @unique
+  password  String?
   stripeId  String?
-
+  planType            String? @default("free")
+  stripeCustomerId    String? @unique
+  stripeSubscriptionId String? @unique
+  
   group      Group[]
   membership Members[]
   posts      Post[]

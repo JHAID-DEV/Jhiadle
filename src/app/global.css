@@ -7,9 +7,15 @@ html {
   scroll-behavior: smooth !important;
 }
 
+body {
+  background: linear-gradient(to right, #05183b, #101f38, #162746, #010813);
+  background-size: cover;
+  color: var(--foreground);
+}
+
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    --background: #0a0a0a;
     --foreground: 222.2 84% 4.9%;
 
     --card: 0 0% 100%;

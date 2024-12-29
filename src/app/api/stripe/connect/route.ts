@@ -8,6 +8,9 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
   apiVersion: "2024-06-20",
 })
 
+// Get base URL from environment variable
+const BASE_URL = process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"
+
 export async function GET(req: NextRequest) {
   try {
     const searchParams = req.nextUrl.searchParams
@@ -34,8 +37,8 @@ export async function GET(req: NextRequest) {
       if (integrateStripeAccount) {
         const accountLink = await stripe.accountLinks.create({
           account: account.id,
-          refresh_url: `http://localhost:3000/callback/stripe/refresh`,
-          return_url: `http://localhost:3000/group/${groupid}/settings/integrations`,
+          refresh_url: `${BASE_URL}/callback/stripe/refresh`,
+          return_url: `${BASE_URL}/group/${groupid}/settings/integrations`,
           type: "account_onboarding",
         })
         console.log(accountLink)

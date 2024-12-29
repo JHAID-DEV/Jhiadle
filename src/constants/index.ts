@@ -11,7 +11,7 @@ import {
 } from "./placeholder"
 import { GROUP_LIST, GroupListProps } from "./slider"
 
-type GroupleConstantsProps = {
+type JhiadleConstantsProps = {
   landingPageMenu: MenuProps[]
   signUpForm: AuthFormProps[]
   signInForm: AuthFormProps[]
@@ -20,7 +20,7 @@ type GroupleConstantsProps = {
   groupPageMenu: GroupMenuProps[]
 }
 
-export const GROUPLE_CONSTANTS: GroupleConstantsProps = {
+export const Jhiadle_CONSTANTS: JhiadleConstantsProps = {
   landingPageMenu: LANDING_PAGE_MENU,
   signUpForm: SIGN_UP_FORM,
   signInForm: SIGN_IN_FORM,

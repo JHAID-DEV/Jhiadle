@@ -27,8 +27,13 @@ import { toast } from "sonner"
 import { z } from "zod"
 
 export const useStripeElements = () => {
-  const StripePromise = async () =>
-    await loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISH_KEY as string)
+  const StripePromise = () => {
+    const key = process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+    if (!key) {
+      throw new Error("Stripe publishable key is not defined")
+    }
+    return loadStripe(key)
+  }
 
   return { StripePromise }
 }
@@ -201,6 +206,7 @@ export const useGroupSubscription = (groupid: string) => {
     formState: { errors },
     reset,
     handleSubmit,
+    watch,
   } = useForm<z.infer<typeof CreateGroupSubscriptionSchema>>({
     resolver: zodResolver(CreateGroupSubscriptionSchema),
   })

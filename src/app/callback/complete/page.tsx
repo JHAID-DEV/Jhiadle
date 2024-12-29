@@ -8,8 +8,10 @@ const CompleteOAuthAfterCallback = async () => {
   const complete = await onSignUpUser({
     firstname: user.firstName as string,
     lastname: user.lastName as string,
+    email: user.emailAddresses[0].emailAddress,
     image: user.imageUrl,
     clerkId: user.id,
+    password: "",
   })
 
   if (complete.status == 200) {
@@ -17,7 +19,7 @@ const CompleteOAuthAfterCallback = async () => {
   }
 
   if (complete.status !== 200) {
-    redirect("/sign-in")
+    redirect("/group/create")
   }
 }
 

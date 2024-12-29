@@ -41,7 +41,7 @@ export const LANDING_PAGE_MENU: MenuProps[] = [
     id: 1,
     label: "Pricing",
     icon: <CreditCard />,
-    path: "#pricing",
+    path: "/pricing",
     section: true,
   },
   {
@@ -63,7 +63,7 @@ export const GROUP_PAGE_MENU: MenuProps[] = [
     id: 1,
     label: "Courses",
     icon: <Courses />,
-    path: "#pricing",
+    path: "/pricing",
     section: true,
   },
   {
