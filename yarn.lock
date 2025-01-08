@@ -5671,10 +5671,10 @@ react-tweet@^3.2.1:
     clsx "^2.0.0"
     swr "^2.2.4"
 
-react@^19.0.0-rc-a960b92c-20240819:
-  version "19.0.0-rc-a960b92c-20240819"
-  resolved "https://registry.yarnpkg.com/react/-/react-19.0.0-rc-a960b92c-20240819.tgz#78d8b157f9addfb1f22d7445b9f05322ae181aa8"
-  integrity sha512-d00ur25bNRRAnIE9MDgigRSirn71eYX0Meq13d8UF4DKSqir9GIKl7qdLM5Bs8eTPRwLNhZ769fN9+pxJS/+sQ==
+react@^19.0.0:
+  version "19.0.0"
+  resolved "https://registry.yarnpkg.com/react/-/react-19.0.0.tgz#6e1969251b9f108870aa4bff37a0ce9ddfaaabdd"
+  integrity sha512-V8AVnmPIICiWpGfm6GLzCR/W5FXLchHop40W4nXBmdlEceh16rCN8O8LNWm5bh5XUX91fh7KpA+W0TgMKmgTpQ==
 
 read-cache@^1.0.0:
   version "1.0.0"
